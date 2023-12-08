@@ -1,3 +1,10 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
 body {
     margin: 0;
     display: flex;
@@ -9,11 +16,12 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 960px;
-    height: 960px;
+    width: 962px;
+    height: 962px;
     border: 1px solid black;
 }
 
 .square {
     background-color: aqua;
+    border: 1px solid white;
 }
