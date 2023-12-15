@@ -3,6 +3,7 @@ const width = container.offsetWidth;
 const height = container.offsetHeight;
 const squareCountButton = document.querySelector(".square-count");
 const rainbowModeButton = document.querySelector(".rainbow-mode");
+const eraserButton = document.querySelector(".eraser");
 
 
 // Style each div to take up an equal amount of space in container
@@ -48,6 +49,11 @@ function randomColor(e) {
     square.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
 
+function erase(e) {
+    let square = e.target;
+    square.style.backgroundColor = "aqua";
+}
+
 // Default to 16x16 gird
 makeSquares(16);
 
@@ -67,3 +73,12 @@ rainbowModeButton.addEventListener("click", () => {
         square.addEventListener("mouseover", e => randomColor(e));
     })
 })
+
+// Add eraser button event listener
+eraserButton.addEventListener("click", () => {
+    let squares = document.querySelectorAll(".square");
+    squares.forEach(square => {
+        square.addEventListener("mouseover", e => erase(e));
+    })
+})
+
