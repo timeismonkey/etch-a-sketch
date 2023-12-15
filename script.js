@@ -2,6 +2,7 @@ const container = document.querySelector(".container")
 const width = container.offsetWidth;
 const height = container.offsetHeight;
 const squareCountButton = document.querySelector(".square-count");
+const rainbowModeButton = document.querySelector(".rainbow-mode");
 
 
 // Style each div to take up an equal amount of space in container
@@ -26,6 +27,18 @@ function makeSquares(squareCount) {
     })
 }
 
+function getRandomNumber(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function randomColor(e) {
+    let square = e.target;
+    let red = getRandomNumber(255)
+    let green = getRandomNumber(255);
+    let blue = getRandomNumber(255);
+    square.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+}
+
 // Default to 16x16 gird
 makeSquares(16);
 
@@ -37,3 +50,11 @@ squareCountButton.addEventListener("click", () => {
     } while (parseInt(squareCount) > 100 || parseInt(squareCount) < 0);
     makeSquares(parseInt(squareCount));
 });
+
+// Add rainbow mode button event listener
+rainbowModeButton.addEventListener("click", () => {
+    let squares = document.querySelectorAll(".square");
+    squares.forEach(square => {
+        square.addEventListener("mouseover", e => randomColor(e));
+    })
+})
