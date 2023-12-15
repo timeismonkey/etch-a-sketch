@@ -4,6 +4,7 @@ const height = container.offsetHeight;
 const squareCountButton = document.querySelector(".square-count");
 const rainbowModeButton = document.querySelector(".rainbow-mode");
 const eraserButton = document.querySelector(".eraser");
+const clearButton = document.querySelector(".clear");
 
 
 // Style each div to take up an equal amount of space in container
@@ -82,3 +83,10 @@ eraserButton.addEventListener("click", () => {
     })
 })
 
+// Add clear button event listener
+clearButton.addEventListener("click", () => {
+    let squares = document.querySelectorAll(".square");
+    squares.forEach(square => {
+        square.style.backgroundColor = "aqua";
+    })
+})
