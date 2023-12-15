@@ -24,11 +24,20 @@ function makeSquares(squareCount) {
         length = length.toString() + "px";
         square.style.height = length;
         square.style.width = length;
+        // Add  default color change hover effect to squares
+        square.addEventListener("mouseover", e => {
+            changeColor(e);
+        })
     })
 }
 
 function getRandomNumber(max) {
     return Math.floor(Math.random() * max);
+}
+
+function changeColor(e) {
+    let square = e.target;
+    square.style.backgroundColor = "red";
 }
 
 function randomColor(e) {
